@@ -159,6 +159,216 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Print LinkedList From Tail To Head" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Print-LinkedList-From-Tail-To-Head"><a href="#Print-LinkedList-From-Tail-To-Head" class="headerlink" title="Print LinkedList From Tail To Head"></a>Print LinkedList From Tail To Head</h1><hr>
+<p>从尾到头打印链表</p>
+<p>1.可以用栈<br>2.可以存完翻转</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;int&gt; PrintListFromTailToHead(TreeNode* head) &#123;</span><br><span class="line">  stack&lt;int&gt; temp;</span><br><span class="line">  vector&lt;int&gt; result;</span><br><span class="line"></span><br><span class="line">  TreeNode* curt = head;</span><br><span class="line"></span><br><span class="line">  //遍历list</span><br><span class="line">  while(curt != nullptr) &#123;</span><br><span class="line">    temp.push(curt-&gt;val);</span><br><span class="line">    curt = curt-&gt;next;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  //放进result中</span><br><span class="line">  while(!temp.empty()) &#123;</span><br><span class="line">    result.push_back(temp.top());</span><br><span class="line">    temp.pop();</span><br><span class="line">  &#125;</span><br><span class="line">  return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;int&gt; PrintListFromTailToHead(TreeNode* head) &#123;</span><br><span class="line">  vector&lt;int&gt; result;</span><br><span class="line"></span><br><span class="line">  TreeNode* curt = head;</span><br><span class="line"></span><br><span class="line">  //遍历list</span><br><span class="line">  while(curt != nullptr) &#123;</span><br><span class="line">    result.push_back(curt-&gt;val);</span><br><span class="line">    curt = curt-&gt;next;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  //翻转result</span><br><span class="line">  int left = 0,right = result.size()-1;</span><br><span class="line">  while(left&lt;right) &#123;</span><br><span class="line">    int temp = result[left];</span><br><span class="line">    result[left] = result[right];</span><br><span class="line">    result[right] = temp;</span><br><span class="line">  &#125;</span><br><span class="line">  return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/06/Print LinkedList From Tail To Head/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Remove Nth Node From End of List" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="19-Remove-Nth-Node-From-End-of-List"><a href="#19-Remove-Nth-Node-From-End-of-List" class="headerlink" title="19. Remove Nth Node From End of List"></a>19. Remove Nth Node From End of List</h1><hr>
+<p>把链表倒数第N个数删掉<br>intput:1-&gt;2-&gt;3-&gt;4-&gt;5, and n = 2<br>output:1-&gt;2-&gt;3-&gt;5.</p>
+<p>这道题用双指针，指针1先走n步，指针2在head;那么指针1与指针2相差n;<br>他们同时继续往下走，指针1走到结尾时，指针2是倒数第N个数</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* removeNthFromEnd(ListNode* head, int n) &#123;</span><br><span class="line">        ListNode* numpy = new ListNode(0);</span><br><span class="line">        numpy-&gt;next = head;</span><br><span class="line">        ListNode* curt = numpy;</span><br><span class="line">        ListNode* pre = numpy;</span><br><span class="line"></span><br><span class="line">        for(int i = 0; i &lt;= n; i++) &#123;</span><br><span class="line">            curt = curt-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        while(curt != nullptr) &#123;</span><br><span class="line">            curt = curt-&gt;next;</span><br><span class="line">            pre = pre-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        pre-&gt;next = pre-&gt;next-&gt;next;</span><br><span class="line"></span><br><span class="line">        return numpy-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/06/Remove Nth Node From End of List/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Intersection of Two Linked Lists" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="160-Intersection-of-Two-Linked-Lists"><a href="#160-Intersection-of-Two-Linked-Lists" class="headerlink" title="160. Intersection of Two Linked Lists"></a>160. Intersection of Two Linked Lists</h1><hr>
+<p>找到两个链表的第一个公共结点，没有的话，输出null<br>Input: intersectVal = 8, listA = [4,1,8,4,5], listB = [5,0,1,8,4,5], skipA = 2, skipB = 3<br>Output: Reference of the node with value = 8</p>
+<p>这道题两种做法<br>1.把A链表的尾指向B的头，若有公共结点则形成环;按照环的判断和环入口的求法来写<br>2.两个链表都走到末尾，若不相等，则无相交。若相等则找到最后一个相等的结点为入口结点。<br>下面给出方法1,方法2还没写23333.</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) &#123;</span><br><span class="line">        if(headA == nullptr || headB == nullptr)</span><br><span class="line">            return nullptr;</span><br><span class="line">        ListNode* tail = headA;</span><br><span class="line">        while(tail-&gt;next != nullptr)</span><br><span class="line">            tail = tail-&gt;next;</span><br><span class="line">        tail-&gt;next = headB;</span><br><span class="line"></span><br><span class="line">        //寻找是否有环</span><br><span class="line">        ListNode* slow = headA;</span><br><span class="line">        ListNode* fast = headA;</span><br><span class="line">        while(fast != nullptr &amp;&amp; fast-&gt;next !=nullptr) &#123;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">            fast = fast-&gt;next-&gt;next;</span><br><span class="line">            if(slow == fast)</span><br><span class="line">                break;</span><br><span class="line">        &#125;</span><br><span class="line">        if(slow != fast) &#123;</span><br><span class="line">            tail-&gt;next = nullptr;   </span><br><span class="line">            return nullptr;</span><br><span class="line">        &#125;</span><br><span class="line">        //寻找环交点</span><br><span class="line">        fast = headA;</span><br><span class="line">        while(fast != slow) &#123;</span><br><span class="line">            fast = fast-&gt;next;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        tail-&gt;next = nullptr;</span><br><span class="line">        return fast;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/06/Intersection of Two Linked Lists/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Copy List with Random Pointer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="138-Copy-List-with-Random-Pointer"><a href="#138-Copy-List-with-Random-Pointer" class="headerlink" title="138. Copy List with Random Pointer"></a>138. Copy List with Random Pointer</h1><hr>
+<p>复制这个复杂的链表，该链表结点有val，next指针和random指针。（此处应当有图，我没画）<br>Input:<br>{“$id”:”1”,”next”:{“$id”:”2”,”next”:null,”random”:{“$ref”:”2”},”val”:2},”random”:{“$ref”:”2”},”val”:1}</p>
+<p>这道题复制链表，即要复制结点和结点之间的关系;<br>我们一般从head开始复制结点，和next，此时后面所有的结点还未生成;<br>我们只能赋值完整个结点和next才能复制random关系。<br>方法是把每个结点变成原结点的next，并使复制结点的next指向原结点的next;<br>（此处应当有图说明）</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    RandomListNode *copyRandomList(RandomListNode *head) &#123;</span><br><span class="line">        if(head == nullptr)</span><br><span class="line">            return nullptr;</span><br><span class="line"></span><br><span class="line">        //首先copy所有的点</span><br><span class="line">        RandomListNode* cur = head;</span><br><span class="line">        while(cur != nullptr) &#123;</span><br><span class="line">            RandomListNode* newNode = new RandomListNode(cur-&gt;label);</span><br><span class="line">            newNode-&gt;next = cur-&gt;next;</span><br><span class="line">            cur-&gt;next = newNode;</span><br><span class="line">            cur = cur-&gt;next-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        //然后把新的点的random填满</span><br><span class="line">        cur = head;</span><br><span class="line">        while(cur != nullptr) &#123;</span><br><span class="line">            if(cur-&gt;random != nullptr)</span><br><span class="line">                cur-&gt;next-&gt;random = cur-&gt;random-&gt;next;</span><br><span class="line"></span><br><span class="line">            cur = cur-&gt;next-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        //拆开</span><br><span class="line">        RandomListNode* oldListNode = head;</span><br><span class="line">        RandomListNode* newListNode;</span><br><span class="line">        RandomListNode* newhead = head-&gt;next;</span><br><span class="line">        while(oldListNode != nullptr) &#123;</span><br><span class="line">            newListNode = oldListNode-&gt;next;</span><br><span class="line">            oldListNode-&gt;next = newListNode-&gt;next;</span><br><span class="line">            oldListNode = oldListNode-&gt;next;</span><br><span class="line">            if(oldListNode != nullptr)</span><br><span class="line">                newListNode-&gt;next = oldListNode-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        return newhead;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/06/Copy List with Random Pointer/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Linked List Cycle II" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
