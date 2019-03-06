@@ -2,22 +2,22 @@
 <html lang="Ch">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>algothm - LiXiaohan&#39;blog</title>
+<title>LiXiaohan&#39;blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="我的个人博客，主要写一些学习、生活和工作的记录。">
+    <meta name="description" content="206. Reverse Linked List 翻转链表，经典题Input: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULLOutput: 5-&amp;gt;4-&amp;gt;3-&amp;gt;2-&amp;gt;1-&amp;gt;NULL （此处有图，我还没画）  123456789101112131415class Solution &amp;#123;public:    ListNode* reverse">
 <meta property="og:type" content="article">
-<meta property="og:title" content="algothm">
-<meta property="og:url" content="http://yoursite.com/2019/03/06/algothm/index.html">
+<meta property="og:title" content="LiXiaohan&#39;blog">
+<meta property="og:url" content="http://yoursite.com/2019/03/06/Reverse Linked List/index.html">
 <meta property="og:site_name" content="LiXiaohan&#39;blog">
-<meta property="og:description" content="我的个人博客，主要写一些学习、生活和工作的记录。">
+<meta property="og:description" content="206. Reverse Linked List 翻转链表，经典题Input: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULLOutput: 5-&amp;gt;4-&amp;gt;3-&amp;gt;2-&amp;gt;1-&amp;gt;NULL （此处有图，我还没画）  123456789101112131415class Solution &amp;#123;public:    ListNode* reverse">
 <meta property="og:locale" content="Chinese">
-<meta property="og:updated_time" content="2019-03-06T07:53:19.205Z">
+<meta property="og:updated_time" content="2019-03-06T08:41:05.162Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="algothm">
-<meta name="twitter:description" content="我的个人博客，主要写一些学习、生活和工作的记录。">
+<meta name="twitter:title" content="LiXiaohan&#39;blog">
+<meta name="twitter:description" content="206. Reverse Linked List 翻转链表，经典题Input: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULLOutput: 5-&amp;gt;4-&amp;gt;3-&amp;gt;2-&amp;gt;1-&amp;gt;NULL （此处有图，我还没画）  123456789101112131415class Solution &amp;#123;public:    ListNode* reverse">
 
 
 
@@ -89,7 +89,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="algothm" height="28">
+                <img src="/images/logo.svg" alt height="28">
             
             </a>
         </div>
@@ -140,13 +140,13 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-03-06T07:53:19.000Z">2019-03-06</time>
+                <time class="level-item has-text-grey" datetime="2019-03-06T08:48:00.712Z">2019-03-06</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    a few seconds read (About 0 words)
+                    a few seconds read (About 62 words)
                 </span>
                 
                 
@@ -155,11 +155,16 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                algothm
+                
             
         </h1>
         <div class="content">
-            
+            <h1 id="206-Reverse-Linked-List"><a href="#206-Reverse-Linked-List" class="headerlink" title="206. Reverse Linked List"></a>206. Reverse Linked List</h1><hr>
+<p>翻转链表，经典题<br>Input: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL<br>Output: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</p>
+<p>（此处有图，我还没画）</p>
+<hr>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* reverseList(ListNode* head) &#123;</span><br><span class="line">        if(head==nullptr) return nullptr;</span><br><span class="line">        ListNode* cur = head;</span><br><span class="line">        ListNode* temp;</span><br><span class="line">        while(cur-&gt;next!=nullptr) &#123;</span><br><span class="line">            temp = cur-&gt;next;</span><br><span class="line">            cur-&gt;next = cur-&gt;next-&gt;next;</span><br><span class="line">            temp-&gt;next = head;</span><br><span class="line">            head = temp;</span><br><span class="line">        &#125;</span><br><span class="line">        return head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
         </div>
         
         
@@ -209,7 +214,7 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/03/06/Reverse Linked List/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/03/06/Remove Duplicates from Sorted List/">
                 <i class="level-item fas fa-chevron-left"></i>
                 <span class="level-item"></span>
             </a>
@@ -217,8 +222,8 @@
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/03/06/hello-world/">
-                <span class="level-item">Hello World</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/03/06/algothm/">
+                <span class="level-item">algothm</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -707,7 +712,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="algothm" height="28">
+                    <img src="/images/logo.svg" alt height="28">
                 
                 </a>
                 <p class="is-size-7">

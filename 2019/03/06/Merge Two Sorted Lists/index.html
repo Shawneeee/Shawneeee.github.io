@@ -2,22 +2,22 @@
 <html lang="Ch">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>algothm - LiXiaohan&#39;blog</title>
+<title>LiXiaohan&#39;blog</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="我的个人博客，主要写一些学习、生活和工作的记录。">
+    <meta name="description" content="21. Merge Two Sorted Lists 合并两个已排序的序列Input: 1-&amp;gt;2-&amp;gt;4, 1-&amp;gt;3-&amp;gt;4Output: 1-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;4 方法是创建一个结点作为dummy结点，比较l1与l2的值，往后推进。牢记判空。  123456789101112131415161718192021222324252627cl">
 <meta property="og:type" content="article">
-<meta property="og:title" content="algothm">
-<meta property="og:url" content="http://yoursite.com/2019/03/06/algothm/index.html">
+<meta property="og:title" content="LiXiaohan&#39;blog">
+<meta property="og:url" content="http://yoursite.com/2019/03/06/Merge Two Sorted Lists/index.html">
 <meta property="og:site_name" content="LiXiaohan&#39;blog">
-<meta property="og:description" content="我的个人博客，主要写一些学习、生活和工作的记录。">
+<meta property="og:description" content="21. Merge Two Sorted Lists 合并两个已排序的序列Input: 1-&amp;gt;2-&amp;gt;4, 1-&amp;gt;3-&amp;gt;4Output: 1-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;4 方法是创建一个结点作为dummy结点，比较l1与l2的值，往后推进。牢记判空。  123456789101112131415161718192021222324252627cl">
 <meta property="og:locale" content="Chinese">
-<meta property="og:updated_time" content="2019-03-06T07:53:19.205Z">
+<meta property="og:updated_time" content="2019-03-06T08:37:52.158Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="algothm">
-<meta name="twitter:description" content="我的个人博客，主要写一些学习、生活和工作的记录。">
+<meta name="twitter:title" content="LiXiaohan&#39;blog">
+<meta name="twitter:description" content="21. Merge Two Sorted Lists 合并两个已排序的序列Input: 1-&amp;gt;2-&amp;gt;4, 1-&amp;gt;3-&amp;gt;4Output: 1-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;4 方法是创建一个结点作为dummy结点，比较l1与l2的值，往后推进。牢记判空。  123456789101112131415161718192021222324252627cl">
 
 
 
@@ -89,7 +89,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="algothm" height="28">
+                <img src="/images/logo.svg" alt height="28">
             
             </a>
         </div>
@@ -140,13 +140,13 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-03-06T07:53:19.000Z">2019-03-06</time>
+                <time class="level-item has-text-grey" datetime="2019-03-06T08:48:00.712Z">2019-03-06</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    a few seconds read (About 0 words)
+                    a few seconds read (About 111 words)
                 </span>
                 
                 
@@ -155,11 +155,16 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                algothm
+                
             
         </h1>
         <div class="content">
-            
+            <h1 id="21-Merge-Two-Sorted-Lists"><a href="#21-Merge-Two-Sorted-Lists" class="headerlink" title="21. Merge Two Sorted Lists"></a>21. Merge Two Sorted Lists</h1><hr>
+<p>合并两个已排序的序列<br>Input: 1-&gt;2-&gt;4, 1-&gt;3-&gt;4<br>Output: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4</p>
+<p>方法是创建一个结点作为dummy结点，比较l1与l2的值，往后推进。牢记判空。</p>
+<hr>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) &#123;</span><br><span class="line">        if(l1 == nullptr &amp;&amp; l2 == nullptr)</span><br><span class="line">            return nullptr;</span><br><span class="line"></span><br><span class="line">        ListNode* l = new ListNode(0);</span><br><span class="line">        ListNode* cur = l;</span><br><span class="line">        while(l1 != nullptr &amp;&amp; l2 != nullptr) &#123;</span><br><span class="line">            if(l1-&gt;val&lt;l2-&gt;val) &#123;</span><br><span class="line">                cur-&gt;next = l1;</span><br><span class="line">                l1 = l1-&gt;next;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                cur-&gt;next = l2;</span><br><span class="line">                l2 = l2-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            cur = cur-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if(l1 == nullptr)</span><br><span class="line">            cur-&gt;next = l2;</span><br><span class="line">        if(l2 == nullptr)</span><br><span class="line">            cur-&gt;next = l1;</span><br><span class="line"></span><br><span class="line">        return l-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
         </div>
         
         
@@ -209,7 +214,7 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/03/06/Reverse Linked List/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/03/06/Linked List Cycle II/">
                 <i class="level-item fas fa-chevron-left"></i>
                 <span class="level-item"></span>
             </a>
@@ -217,8 +222,8 @@
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/03/06/hello-world/">
-                <span class="level-item">Hello World</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/03/06/Remove Duplicates from Sorted List/">
+                <span class="level-item"></span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -707,7 +712,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="algothm" height="28">
+                    <img src="/images/logo.svg" alt height="28">
                 
                 </a>
                 <p class="is-size-7">
