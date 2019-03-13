@@ -6,18 +6,38 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | LiXiaohan&#39;blog</title>
+  <title>LiXiaohan&#39;blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我的个人博客，主要写一些学习、生活和工作的记录。">
-<meta property="og:type" content="website">
+  <meta name="description" content="SLAM 公式的推导 1.旋转矩阵、转换矩阵、相似矩阵。李群李代数及其求导和扰动模型   2.针孔相机模型  3.非线性优化  4.特征点法（VO）1).2D对2D的匹配求解运动  2).3D对2D的匹配求解运动  3).3D对2D的匹配求解运动  5.光流与直接法  6.后端优化1).KF与EKF 2).BA 3).位姿图优化">
+<meta property="og:type" content="article">
 <meta property="og:title" content="LiXiaohan&#39;blog">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/03/13/slam/index.html">
 <meta property="og:site_name" content="LiXiaohan&#39;blog">
-<meta property="og:description" content="我的个人博客，主要写一些学习、生活和工作的记录。">
+<meta property="og:description" content="SLAM 公式的推导 1.旋转矩阵、转换矩阵、相似矩阵。李群李代数及其求导和扰动模型   2.针孔相机模型  3.非线性优化  4.特征点法（VO）1).2D对2D的匹配求解运动  2).3D对2D的匹配求解运动  3).3D对2D的匹配求解运动  5.光流与直接法  6.后端优化1).KF与EKF 2).BA 3).位姿图优化">
 <meta property="og:locale" content="chinese">
+<meta property="og:image" content="http://yoursite.com/2019/03/13/slam/image/slam/so31.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/13/slam/image/slam/so32.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/13/slam/image/slam/photo.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/13/slam/image/slam/photo2.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/13/slam/image/slam/square.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/13/slam/image/slam/square2.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/13/slam/image/slam/2D-2D.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/13/slam/image/slam/2D-2D2.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/13/slam/image/slam/3D-2D.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/13/slam/image/slam/3D-2D2.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/13/slam/image/slam/3D-3D.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/13/slam/image/slam/3D-3D2.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/13/slam/image/slam/Lk.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/13/slam/image/slam/direct.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/13/slam/image/slam/KF.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/13/slam/image/slam/EKF.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/13/slam/image/slam/BA.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/13/slam/image/slam/posegraph.jpg">
+<meta property="og:updated_time" content="2019-03-13T05:43:20.370Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LiXiaohan&#39;blog">
-<meta name="twitter:description" content="我的个人博客，主要写一些学习、生活和工作的记录。">
+<meta name="twitter:description" content="SLAM 公式的推导 1.旋转矩阵、转换矩阵、相似矩阵。李群李代数及其求导和扰动模型   2.针孔相机模型  3.非线性优化  4.特征点法（VO）1).2D对2D的匹配求解运动  2).3D对2D的匹配求解运动  3).3D对2D的匹配求解运动  5.光流与直接法  6.后端优化1).KF与EKF 2).BA 3).位姿图优化">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/13/slam/image/slam/so31.jpg">
   
     <link rel="alternative" href="/atom.xml" title="LiXiaohan&#39;blog" type="application/atom+xml">
   
@@ -157,241 +177,158 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-slam" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="SLAM-公式的推导"><a href="#SLAM-公式的推导" class="headerlink" title="SLAM 公式的推导"></a>SLAM 公式的推导</h1><hr>
+<h2 id="1-旋转矩阵、转换矩阵、相似矩阵。李群李代数及其求导和扰动模型"><a href="#1-旋转矩阵、转换矩阵、相似矩阵。李群李代数及其求导和扰动模型" class="headerlink" title="1.旋转矩阵、转换矩阵、相似矩阵。李群李代数及其求导和扰动模型"></a>1.旋转矩阵、转换矩阵、相似矩阵。李群李代数及其求导和扰动模型</h2><p><img src="./image/slam/so31.jpg" alt="李群李代数" title="&#39;李群李代数&#39;"></p>
+<p><img src="./image/slam/so32.jpg" alt="扰动模型" title="&#39;扰动模型&#39;"></p>
+<hr>
+<h2 id="2-针孔相机模型"><a href="#2-针孔相机模型" class="headerlink" title="2.针孔相机模型"></a>2.针孔相机模型</h2><p><img src="./image/slam/photo.jpg" alt="针孔相机" title="&#39;针孔相机&#39;"><br><img src="./image/slam/photo2.jpg" alt="双目" title="&#39;双目&#39;"></p>
+<hr>
+<h2 id="3-非线性优化"><a href="#3-非线性优化" class="headerlink" title="3.非线性优化"></a>3.非线性优化</h2><p><img src="./image/slam/square.jpg" alt="非线性优化" title="&#39;非线性优化&#39;"><br><img src="./image/slam/square2.jpg" alt="非线性优化" title="&#39;非线性优化&#39;"></p>
+<hr>
+<h2 id="4-特征点法（VO）"><a href="#4-特征点法（VO）" class="headerlink" title="4.特征点法（VO）"></a>4.特征点法（VO）</h2><h3 id="1-2D对2D的匹配求解运动"><a href="#1-2D对2D的匹配求解运动" class="headerlink" title="1).2D对2D的匹配求解运动"></a>1).2D对2D的匹配求解运动</h3><p><img src="./image/slam/2D-2D.jpg" alt="对极几何求F和E" title="&#39;对极几何求F和E&#39;"><br><img src="./image/slam/2D-2D2.jpg" alt="对极几何求H、三角测量" title="&#39;单应矩阵和三角测量&#39;"></p>
+<hr>
+<h3 id="2-3D对2D的匹配求解运动"><a href="#2-3D对2D的匹配求解运动" class="headerlink" title="2).3D对2D的匹配求解运动"></a>2).3D对2D的匹配求解运动</h3><p><img src="./image/slam/3D-2D.jpg" alt="DLT求解PNP" title="&#39;DLT求解PNP&#39;"><br><img src="./image/slam/3D-2D2.jpg" alt="BA求解PNP" title="&#39;BA求解PNP&#39;"></p>
+<hr>
+<h3 id="3-3D对2D的匹配求解运动"><a href="#3-3D对2D的匹配求解运动" class="headerlink" title="3).3D对2D的匹配求解运动"></a>3).3D对2D的匹配求解运动</h3><p><img src="./image/slam/3D-3D.jpg" alt="SVD求解ICP" title="&#39;SVD求解ICP&#39;"><br><img src="./image/slam/3D-3D2.jpg" alt="非线性优化求解ICP" title="&#39;非线性优化求解ICP&#39;"></p>
+<hr>
+<h2 id="5-光流与直接法"><a href="#5-光流与直接法" class="headerlink" title="5.光流与直接法"></a>5.光流与直接法</h2><p><img src="./image/slam/Lk.jpg" alt="LK光流" title="&#39;LK光流&#39;"><br><img src="./image/slam/direct.jpg" alt="直接法" title="&#39;直接法&#39;"></p>
+<hr>
+<h2 id="6-后端优化"><a href="#6-后端优化" class="headerlink" title="6.后端优化"></a>6.后端优化</h2><h3 id="1-KF与EKF"><a href="#1-KF与EKF" class="headerlink" title="1).KF与EKF"></a>1).KF与EKF</h3><p><img src="./image/slam/KF.jpg" alt="KF" title="&#39;KF&#39;"><br><img src="./image/slam/EKF.jpg" alt="EKF" title="&#39;EKF&#39;"></p>
+<h3 id="2-BA"><a href="#2-BA" class="headerlink" title="2).BA"></a>2).BA</h3><p><img src="./image/slam/BA.jpg" alt="BA" title="&#39;BA&#39;"></p>
+<h3 id="3-位姿图优化"><a href="#3-位姿图优化" class="headerlink" title="3).位姿图优化"></a>3).位姿图优化</h3><p><img src="./image/slam/posegraph.jpg" alt="位姿图优化" title="&#39;位姿图优化&#39;"></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/13/slam/" class="archive-article-date">
-  	<time datetime="2019-03-13T05:43:20.370Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-13</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/13/slam/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/06/Print LinkedList From Tail To Head/" class="archive-article-date">
-  	<time datetime="2019-03-06T10:34:21.385Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-06</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/06/Remove Nth Node From End of List/" class="archive-article-date">
-  	<time datetime="2019-03-06T10:34:21.385Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-06</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/06/Print LinkedList From Tail To Head/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/06/Intersection of Two Linked Lists/" class="archive-article-date">
-  	<time datetime="2019-03-06T10:34:18.197Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-06</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/06/Copy List with Random Pointer/" class="archive-article-date">
-  	<time datetime="2019-03-06T10:34:18.193Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-06</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+        
+        
+    </div>
+</aside>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/06/Linked List Cycle II/" class="archive-article-date">
-  	<time datetime="2019-03-06T08:48:00.712Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-06</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/06/Merge Two Sorted Lists/" class="archive-article-date">
-  	<time datetime="2019-03-06T08:48:00.712Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-06</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/06/Reverse Linked List/" class="archive-article-date">
-  	<time datetime="2019-03-06T08:48:00.712Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-06</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/06/Remove Duplicates from Sorted List/" class="archive-article-date">
-  	<time datetime="2019-03-06T08:48:00.712Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-06</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/06/algothm/" class="archive-article-date">
-  	<time datetime="2019-03-06T07:53:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/06/algothm/">algothm</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
+  
+
   
 
 
@@ -415,8 +352,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
