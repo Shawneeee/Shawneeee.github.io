@@ -165,8 +165,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="SLAM-公式的推导"><a href="#SLAM-公式的推导" class="headerlink" title="SLAM 公式的推导"></a>SLAM 公式的推导</h1><hr>
-<h2 id="1-旋转矩阵、转换矩阵、相似矩阵。李群李代数及其求导和扰动模型"><a href="#1-旋转矩阵、转换矩阵、相似矩阵。李群李代数及其求导和扰动模型" class="headerlink" title="1.旋转矩阵、转换矩阵、相似矩阵。李群李代数及其求导和扰动模型"></a>1.旋转矩阵、转换矩阵、相似矩阵。李群李代数及其求导和扰动模型</h2><p><img src="./image/slam/so31.jpg" alt="李群李代数" title="&#39;李群李代数&#39;"></p>
-<p><img src="./image/slam/so32.jpg" alt="扰动模型" title="&#39;扰动模型&#39;"></p>
+<h2 id="1-旋转矩阵、转换矩阵、相似矩阵。李群李代数及其求导和扰动模型"><a href="#1-旋转矩阵、转换矩阵、相似矩阵。李群李代数及其求导和扰动模型" class="headerlink" title="1.旋转矩阵、转换矩阵、相似矩阵。李群李代数及其求导和扰动模型"></a>1.旋转矩阵、转换矩阵、相似矩阵。李群李代数及其求导和扰动模型</h2><p><img src="./image/slam/so31.jpg" alt="李群李代数" title="&#39;李群李代数&#39;"><br><br><img src="./image/slam/so32.jpg" alt="扰动模型" title="&#39;扰动模型&#39;"></p>
 <hr>
 <h2 id="2-针孔相机模型"><a href="#2-针孔相机模型" class="headerlink" title="2.针孔相机模型"></a>2.针孔相机模型</h2><p><img src="./image/slam/photo.jpg" alt="针孔相机" title="&#39;针孔相机&#39;"><br><img src="./image/slam/photo2.jpg" alt="双目" title="&#39;双目&#39;"></p>
 <hr>
@@ -539,16 +538,16 @@
 
 
   
-    <article id="post-Reverse Linked List" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Remove Duplicates from Sorted List" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="206-Reverse-Linked-List"><a href="#206-Reverse-Linked-List" class="headerlink" title="206. Reverse Linked List"></a>206. Reverse Linked List</h1><hr>
-<p>翻转链表，经典题<br>Input: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL<br>Output: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</p>
-<p>（此处有图，我还没画）</p>
+        <h1 id="82-Remove-Duplicates-from-Sorted-List"><a href="#82-Remove-Duplicates-from-Sorted-List" class="headerlink" title="82.Remove Duplicates from Sorted List"></a>82.Remove Duplicates from Sorted List</h1><hr>
+<p>在一个已排序的链表中，删除掉所有重复数字。<br>Input: 1-&gt;1-&gt;1-&gt;2-&gt;3<br>Output: 2-&gt;3</p>
+<p>这道题，主要是要删除所有的重复数字，就需要一个pre前结点，和一个cur，还有一个next指向结束重复的结点。</p>
 <hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* reverseList(ListNode* head) &#123;</span><br><span class="line">        if(head==nullptr) return nullptr;</span><br><span class="line">        ListNode* cur = head;</span><br><span class="line">        ListNode* temp;</span><br><span class="line">        while(cur-&gt;next!=nullptr) &#123;</span><br><span class="line">            temp = cur-&gt;next;</span><br><span class="line">            cur-&gt;next = cur-&gt;next-&gt;next;</span><br><span class="line">            temp-&gt;next = head;</span><br><span class="line">            head = temp;</span><br><span class="line">        &#125;</span><br><span class="line">        return head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition for singly-linked list.</span><br><span class="line"> * struct ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode *next;</span><br><span class="line"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* deleteDuplicates(ListNode* head) &#123;</span><br><span class="line">        if(head == nullptr)</span><br><span class="line">            return head;</span><br><span class="line"></span><br><span class="line">        ListNode* dummy = new ListNode(0);</span><br><span class="line">        dummy-&gt;next = head;</span><br><span class="line">        ListNode* pre = dummy;</span><br><span class="line">        ListNode* cur = head;</span><br><span class="line">        ListNode* nextNode = head;</span><br><span class="line"></span><br><span class="line">        while(cur != nullptr &amp;&amp; cur-&gt;next != nullptr) &#123;</span><br><span class="line">            nextNode = cur-&gt;next;</span><br><span class="line">            while(cur != nullptr &amp;&amp; cur-&gt;next != nullptr &amp;&amp; cur-&gt;val == cur-&gt;next-&gt;val) &#123;</span><br><span class="line">                nextNode = nextNode-&gt;next;</span><br><span class="line">                cur = cur-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            if(nextNode != pre-&gt;next-&gt;next) &#123;</span><br><span class="line">                pre-&gt;next = nextNode;</span><br><span class="line">                cur = nextNode;</span><br><span class="line">            &#125;</span><br><span class="line">            else &#123;</span><br><span class="line">                pre = pre-&gt;next;</span><br><span class="line">                cur = cur-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return dummy-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -561,7 +560,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/06/Reverse Linked List/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/03/06/Remove Duplicates from Sorted List/">展开全文 >></a>
         </p>
       
 
@@ -591,16 +590,16 @@
 
 
   
-    <article id="post-Remove Duplicates from Sorted List" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Reverse Linked List" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="82-Remove-Duplicates-from-Sorted-List"><a href="#82-Remove-Duplicates-from-Sorted-List" class="headerlink" title="82.Remove Duplicates from Sorted List"></a>82.Remove Duplicates from Sorted List</h1><hr>
-<p>在一个已排序的链表中，删除掉所有重复数字。<br>Input: 1-&gt;1-&gt;1-&gt;2-&gt;3<br>Output: 2-&gt;3</p>
-<p>这道题，主要是要删除所有的重复数字，就需要一个pre前结点，和一个cur，还有一个next指向结束重复的结点。</p>
+        <h1 id="206-Reverse-Linked-List"><a href="#206-Reverse-Linked-List" class="headerlink" title="206. Reverse Linked List"></a>206. Reverse Linked List</h1><hr>
+<p>翻转链表，经典题<br>Input: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL<br>Output: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</p>
+<p>（此处有图，我还没画）</p>
 <hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition for singly-linked list.</span><br><span class="line"> * struct ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode *next;</span><br><span class="line"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* deleteDuplicates(ListNode* head) &#123;</span><br><span class="line">        if(head == nullptr)</span><br><span class="line">            return head;</span><br><span class="line"></span><br><span class="line">        ListNode* dummy = new ListNode(0);</span><br><span class="line">        dummy-&gt;next = head;</span><br><span class="line">        ListNode* pre = dummy;</span><br><span class="line">        ListNode* cur = head;</span><br><span class="line">        ListNode* nextNode = head;</span><br><span class="line"></span><br><span class="line">        while(cur != nullptr &amp;&amp; cur-&gt;next != nullptr) &#123;</span><br><span class="line">            nextNode = cur-&gt;next;</span><br><span class="line">            while(cur != nullptr &amp;&amp; cur-&gt;next != nullptr &amp;&amp; cur-&gt;val == cur-&gt;next-&gt;val) &#123;</span><br><span class="line">                nextNode = nextNode-&gt;next;</span><br><span class="line">                cur = cur-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            if(nextNode != pre-&gt;next-&gt;next) &#123;</span><br><span class="line">                pre-&gt;next = nextNode;</span><br><span class="line">                cur = nextNode;</span><br><span class="line">            &#125;</span><br><span class="line">            else &#123;</span><br><span class="line">                pre = pre-&gt;next;</span><br><span class="line">                cur = cur-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return dummy-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* reverseList(ListNode* head) &#123;</span><br><span class="line">        if(head==nullptr) return nullptr;</span><br><span class="line">        ListNode* cur = head;</span><br><span class="line">        ListNode* temp;</span><br><span class="line">        while(cur-&gt;next!=nullptr) &#123;</span><br><span class="line">            temp = cur-&gt;next;</span><br><span class="line">            cur-&gt;next = cur-&gt;next-&gt;next;</span><br><span class="line">            temp-&gt;next = head;</span><br><span class="line">            head = temp;</span><br><span class="line">        &#125;</span><br><span class="line">        return head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -613,7 +612,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/06/Remove Duplicates from Sorted List/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/03/06/Reverse Linked List/">展开全文 >></a>
         </p>
       
 

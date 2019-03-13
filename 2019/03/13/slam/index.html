@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>LiXiaohan&#39;blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="SLAM 公式的推导 1.旋转矩阵、转换矩阵、相似矩阵。李群李代数及其求导和扰动模型   2.针孔相机模型  3.非线性优化  4.特征点法（VO）1).2D对2D的匹配求解运动  2).3D对2D的匹配求解运动  3).3D对2D的匹配求解运动  5.光流与直接法  6.后端优化1).KF与EKF 2).BA 3).位姿图优化">
+  <meta name="description" content="SLAM 公式的推导 1.旋转矩阵、转换矩阵、相似矩阵。李群李代数及其求导和扰动模型  2.针孔相机模型  3.非线性优化  4.特征点法（VO）1).2D对2D的匹配求解运动  2).3D对2D的匹配求解运动  3).3D对2D的匹配求解运动  5.光流与直接法  6.后端优化1).KF与EKF 2).BA 3).位姿图优化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LiXiaohan&#39;blog">
 <meta property="og:url" content="http://yoursite.com/2019/03/13/slam/index.html">
 <meta property="og:site_name" content="LiXiaohan&#39;blog">
-<meta property="og:description" content="SLAM 公式的推导 1.旋转矩阵、转换矩阵、相似矩阵。李群李代数及其求导和扰动模型   2.针孔相机模型  3.非线性优化  4.特征点法（VO）1).2D对2D的匹配求解运动  2).3D对2D的匹配求解运动  3).3D对2D的匹配求解运动  5.光流与直接法  6.后端优化1).KF与EKF 2).BA 3).位姿图优化">
+<meta property="og:description" content="SLAM 公式的推导 1.旋转矩阵、转换矩阵、相似矩阵。李群李代数及其求导和扰动模型  2.针孔相机模型  3.非线性优化  4.特征点法（VO）1).2D对2D的匹配求解运动  2).3D对2D的匹配求解运动  3).3D对2D的匹配求解运动  5.光流与直接法  6.后端优化1).KF与EKF 2).BA 3).位姿图优化">
 <meta property="og:locale" content="chinese">
 <meta property="og:image" content="http://yoursite.com/2019/03/13/slam/image/slam/so31.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/03/13/slam/image/slam/so32.jpg">
@@ -33,10 +33,10 @@
 <meta property="og:image" content="http://yoursite.com/2019/03/13/slam/image/slam/EKF.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/03/13/slam/image/slam/BA.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/03/13/slam/image/slam/posegraph.jpg">
-<meta property="og:updated_time" content="2019-03-13T05:43:20.370Z">
+<meta property="og:updated_time" content="2019-03-13T05:54:34.315Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LiXiaohan&#39;blog">
-<meta name="twitter:description" content="SLAM 公式的推导 1.旋转矩阵、转换矩阵、相似矩阵。李群李代数及其求导和扰动模型   2.针孔相机模型  3.非线性优化  4.特征点法（VO）1).2D对2D的匹配求解运动  2).3D对2D的匹配求解运动  3).3D对2D的匹配求解运动  5.光流与直接法  6.后端优化1).KF与EKF 2).BA 3).位姿图优化">
+<meta name="twitter:description" content="SLAM 公式的推导 1.旋转矩阵、转换矩阵、相似矩阵。李群李代数及其求导和扰动模型  2.针孔相机模型  3.非线性优化  4.特征点法（VO）1).2D对2D的匹配求解运动  2).3D对2D的匹配求解运动  3).3D对2D的匹配求解运动  5.光流与直接法  6.后端优化1).KF与EKF 2).BA 3).位姿图优化">
 <meta name="twitter:image" content="http://yoursite.com/2019/03/13/slam/image/slam/so31.jpg">
   
     <link rel="alternative" href="/atom.xml" title="LiXiaohan&#39;blog" type="application/atom+xml">
@@ -183,8 +183,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="SLAM-公式的推导"><a href="#SLAM-公式的推导" class="headerlink" title="SLAM 公式的推导"></a>SLAM 公式的推导</h1><hr>
-<h2 id="1-旋转矩阵、转换矩阵、相似矩阵。李群李代数及其求导和扰动模型"><a href="#1-旋转矩阵、转换矩阵、相似矩阵。李群李代数及其求导和扰动模型" class="headerlink" title="1.旋转矩阵、转换矩阵、相似矩阵。李群李代数及其求导和扰动模型"></a>1.旋转矩阵、转换矩阵、相似矩阵。李群李代数及其求导和扰动模型</h2><p><img src="./image/slam/so31.jpg" alt="李群李代数" title="&#39;李群李代数&#39;"></p>
-<p><img src="./image/slam/so32.jpg" alt="扰动模型" title="&#39;扰动模型&#39;"></p>
+<h2 id="1-旋转矩阵、转换矩阵、相似矩阵。李群李代数及其求导和扰动模型"><a href="#1-旋转矩阵、转换矩阵、相似矩阵。李群李代数及其求导和扰动模型" class="headerlink" title="1.旋转矩阵、转换矩阵、相似矩阵。李群李代数及其求导和扰动模型"></a>1.旋转矩阵、转换矩阵、相似矩阵。李群李代数及其求导和扰动模型</h2><p><img src="./image/slam/so31.jpg" alt="李群李代数" title="&#39;李群李代数&#39;"><br><br><img src="./image/slam/so32.jpg" alt="扰动模型" title="&#39;扰动模型&#39;"></p>
 <hr>
 <h2 id="2-针孔相机模型"><a href="#2-针孔相机模型" class="headerlink" title="2.针孔相机模型"></a>2.针孔相机模型</h2><p><img src="./image/slam/photo.jpg" alt="针孔相机" title="&#39;针孔相机&#39;"><br><img src="./image/slam/photo2.jpg" alt="双目" title="&#39;双目&#39;"></p>
 <hr>
